@@ -83,14 +83,17 @@ class MediaContainer extends Component {
 	}
 
 	render() {
-		const { maxWidth, mediaPosition, mediaUrl, mediaType, mediaWidth, onWidthChange } = this.props;
+		const { mediaPosition, mediaUrl, mediaType, mediaWidth, commitWidthChange, onWidthChange } = this.props;
 		if ( mediaType && mediaUrl ) {
 			const handleClasses = {
 				left: 'editor-media-container__resize-handler',
 				right: 'editor-media-container__resize-handler',
 			};
-			const onResizeStop = ( event, direction, elt, delta ) => {
-				onWidthChange( mediaWidth + delta.width );
+			const onResize = ( event, direction, elt ) => {
+				onWidthChange( parseInt( elt.style.width ) );
+			};
+			const onResizeStop = ( event, direction, elt ) => {
+				commitWidthChange( parseInt( elt.style.width ) );
 			};
 			const enablePositions = {
 				right: mediaPosition === 'left',
@@ -109,11 +112,20 @@ class MediaContainer extends Component {
 			return (
 				<ResizableBox
 					className="editor-media-container__resizer"
-					size={ { width: mediaWidth } }
-					minWidth="10"
-					maxWidth={ maxWidth }
+					size={ { width: mediaWidth + '%' } }
+					minWidth="10%"
+					maxWidth="100%"
 					handleClasses={ handleClasses }
+					handleStyles={ {
+						left: {
+							width: '100%',
+						},
+						right: {
+							width: '100%',
+						},
+					} }
 					enable={ enablePositions }
+					onResize={ onResize }
 					onResizeStop={ onResizeStop }
 					axis="x"
 				>

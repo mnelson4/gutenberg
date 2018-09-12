@@ -2,7 +2,6 @@
  * External dependencies
  */
 import classnames from 'classnames';
-import { get } from 'lodash';
 
 /**
  * WordPress dependencies
@@ -34,23 +33,14 @@ class ImageEdit extends Component {
 
 		this.onSelectMedia = this.onSelectMedia.bind( this );
 		this.onWidthChange = this.onWidthChange.bind( this );
+		this.commitWidthChange = this.commitWidthChange.bind( this );
+		this.state = {
+			mediaWidth: null,
+		};
 	}
 
 	onSelectMedia( media ) {
 		const { setAttributes } = this.props;
-		let newMediaWidth;
-		if ( media.width ) {
-			newMediaWidth = parseInt( media.width );
-		} else {
-			const fullSizeWidth = get( media, [ 'sizes', 'full', 'width' ] );
-			if ( fullSizeWidth ) {
-				newMediaWidth = parseInt( fullSizeWidth );
-			}
-		}
-
-		const mediaWidthProp = Number.isFinite( newMediaWidth ) ?
-			{ mediaWidth: Math.min( newMediaWidth, MAX_MEDIA_WIDTH ) } :
-			{};
 
 		let mediaType;
 		// for media selections originated from a file upload.
@@ -71,16 +61,23 @@ class ImageEdit extends Component {
 			mediaId: media.id,
 			mediaType,
 			mediaUrl: media.url,
-			mediaWidth: newMediaWidth,
-			...mediaWidthProp,
 		} );
 	}
 
 	onWidthChange( width ) {
+		this.setState( {
+			mediaWidth: width,
+		} );
+	}
+
+	commitWidthChange( width ) {
 		const { setAttributes } = this.props;
 
 		setAttributes( {
 			mediaWidth: width,
+		} );
+		this.setState( {
+			mediaWidth: null,
 		} );
 	}
 
@@ -94,6 +91,7 @@ class ImageEdit extends Component {
 				className="block-library-half-media__media-container"
 				onSelectMedia={ this.onSelectMedia }
 				onWidthChange={ this.onWidthChange }
+				commitWidthChange={ this.commitWidthChange }
 				{ ...{ mediaAlt, mediaId, mediaType, mediaUrl, mediaPosition, mediaWidth } }
 			/>
 		);
@@ -101,12 +99,15 @@ class ImageEdit extends Component {
 
 	render() {
 		const { attributes, backgroundColor, setAttributes, setBackgroundColor } = this.props;
-		const { mediaPosition } = attributes;
+		const { mediaPosition, mediaWidth } = attributes;
+		const temporaryMediaWidth = this.state.mediaWidth;
 		const className = classnames( 'wp-block-half-media', {
 			'has-media-on-the-right': 'right' === mediaPosition,
 			[ backgroundColor.class ]: backgroundColor.class,
 		} );
+		const widthString = `${ temporaryMediaWidth || mediaWidth }%`;
 		const style = {
+			gridTemplateColumns: 'right' === mediaPosition ? `auto ${ widthString }` : `${ widthString } auto`,
 			backgroundColor: backgroundColor.value,
 		};
 		const colorSettings = [ {

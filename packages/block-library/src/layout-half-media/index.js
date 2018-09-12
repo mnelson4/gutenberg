@@ -10,7 +10,7 @@ import classnames from 'classnames';
 import { __ } from '@wordpress/i18n';
 import {
 	InnerBlocks,
-	getColorClass,
+	getColorClassName,
 } from '@wordpress/editor';
 
 /**
@@ -63,9 +63,7 @@ export const settings = {
 		},
 		mediaWidth: {
 			type: 'number',
-			source: 'attribute',
-			selector: 'figure video,figure img',
-			attribute: 'width',
+			default: 50,
 		},
 	},
 
@@ -88,17 +86,17 @@ export const settings = {
 		const mediaTypeRenders = {
 			image: () => {
 				return (
-					<img src={ mediaUrl } alt={ mediaAlt } width={ mediaWidth } />
+					<img src={ mediaUrl } alt={ mediaAlt } />
 				);
 			},
 			video: () => {
 				return (
-					<video controls src={ mediaUrl } width={ mediaWidth } />
+					<video controls src={ mediaUrl } />
 				);
 			},
 		};
 
-		const backgroundClass = getColorClass( 'background-color', backgroundColor );
+		const backgroundClass = getColorClassName( 'background-color', backgroundColor );
 		const className = classnames( {
 			'has-media-on-the-right': 'right' === mediaPosition,
 			[ backgroundClass ]: backgroundClass,
@@ -106,6 +104,7 @@ export const settings = {
 
 		const style = {
 			backgroundColor: backgroundClass ? undefined : customBackgroundColor,
+			gridTemplateColumns: 'right' === mediaPosition ? `auto ${ mediaWidth }%` : `${ mediaWidth }% auto`,
 		};
 		return (
 			<div className={ className } style={ style }>
