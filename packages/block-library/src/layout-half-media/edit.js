@@ -25,9 +25,8 @@ const ALLOWED_BLOCKS = [ 'core/button', 'core/paragraph', 'core/heading', 'core/
 const TEMPLATE = [
 	[ 'core/paragraph', { fontSize: 'large', placeholder: 'Content…' } ],
 ];
-const MAX_MEDIA_WIDTH = 900;
 
-class ImageEdit extends Component {
+class HalfMediaEdit extends Component {
 	constructor() {
 		super( ...arguments );
 
@@ -87,7 +86,6 @@ class ImageEdit extends Component {
 
 		return (
 			<MediaContainer
-				maxWidth={ MAX_MEDIA_WIDTH }
 				className="block-library-half-media__media-container"
 				onSelectMedia={ this.onSelectMedia }
 				onWidthChange={ this.onWidthChange }
@@ -152,4 +150,4 @@ class ImageEdit extends Component {
 	}
 }
 
-export default withColors( 'backgroundColor' )( ImageEdit );
+export default withColors( 'backgroundColor' )( HalfMediaEdit );

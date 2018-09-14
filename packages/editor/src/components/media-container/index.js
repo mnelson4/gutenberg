@@ -116,14 +116,6 @@ class MediaContainer extends Component {
 					minWidth="10%"
 					maxWidth="100%"
 					handleClasses={ handleClasses }
-					handleStyles={ {
-						left: {
-							width: '100%',
-						},
-						right: {
-							width: '100%',
-						},
-					} }
 					enable={ enablePositions }
 					onResize={ onResize }
 					onResizeStop={ onResizeStop }

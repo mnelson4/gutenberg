@@ -18,6 +18,8 @@ import {
  */
 import edit from './edit';
 
+const DEFAULT_MEDIA_WIDTH = 50;
+
 export const name = 'core/half-media';
 
 export const settings = {
@@ -102,9 +104,13 @@ export const settings = {
 			[ backgroundClass ]: backgroundClass,
 		} );
 
+		let gridTemplateColumns;
+		if ( mediaWidth !== DEFAULT_MEDIA_WIDTH ) {
+			gridTemplateColumns = 'right' === mediaPosition ? `auto ${ mediaWidth }%` : `${ mediaWidth }% auto`;
+		}
 		const style = {
 			backgroundColor: backgroundClass ? undefined : customBackgroundColor,
-			gridTemplateColumns: 'right' === mediaPosition ? `auto ${ mediaWidth }%` : `${ mediaWidth }% auto`,
+			gridTemplateColumns,
 		};
 		return (
 			<div className={ className } style={ style }>
