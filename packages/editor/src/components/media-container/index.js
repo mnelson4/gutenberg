@@ -17,6 +17,11 @@ import BlockControls from '../block-controls';
 import MediaPlaceholder from '../media-placeholder';
 import MediaUpload from '../media-upload';
 
+/**
+ * Constants
+ */
+const ALLOWED_MEDIA_TYPES = [ 'image', 'video' ];
+
 class MediaContainer extends Component {
 	renderToolbarEditButton() {
 		const { mediaId, onSelectMedia } = this.props;
@@ -77,7 +82,7 @@ class MediaContainer extends Component {
 				className={ className }
 				onSelect={ onSelectMedia }
 				accept="image/*,video/*"
-				type="image,video"
+				allowedTypes={ ALLOWED_MEDIA_TYPES }
 			/>
 		);
 	}
