@@ -1,33 +1,33 @@
 
 
-.wp-block-half-media,
-.wp-block-half-media.aligncenter {
+.wp-block-media-text,
+.wp-block-media-text.aligncenter {
 	grid-template-areas:
-		"half-media-media half-media-content"
+		"media-text-media media-text-content"
 		"resizer resizer";
 }
 
-.wp-block-half-media.has-media-on-the-right,
-.wp-block-half-media.has-media-on-the-right.aligncenter {
+.wp-block-media-text.has-media-on-the-right,
+.wp-block-media-text.has-media-on-the-right.aligncenter {
 	grid-template-areas:
-		"half-media-content half-media-media"
+		"media-text-content media-text-media"
 		"resizer resizer";
 }
 
-.wp-block-half-media .__resizable_base__ {
+.wp-block-media-text .__resizable_base__ {
 	grid-area: resizer;
 }
 
-.wp-block-half-media .editor-media-container__resizer {
-	grid-area: half-media-media;
+.wp-block-media-text .editor-media-container__resizer {
+	grid-area: media-text-media;
 	align-self: center;
 	// the resizer sets a inline width but as we are using a grid layout we set the width on container
 	width: 100% !important;
 }
 
-.wp-block-half-media .editor-inner-blocks {
+.wp-block-media-text .editor-inner-blocks {
 	word-break: break-word;
-	grid-area: half-media-content;
+	grid-area: media-text-content;
 	text-align: initial;
 }
 
@@ -35,18 +35,18 @@
 	display: block;
 }
 
-.wp-block-half-media > .editor-inner-blocks > .editor-block-list__layout > .editor-block-list__block {
+.wp-block-media-text > .editor-inner-blocks > .editor-block-list__layout > .editor-block-list__block {
 	max-width: unset;
 }
 
-figure.block-library-half-media__media-container {
+figure.block-library-media-text__media-container {
 	margin: 0;
 	height: 100%;
 	width: 100%;
 }
 
-.block-library-half-media__media-container img,
-.block-library-half-media__media-container video {
+.block-library-media-text__media-container img,
+.block-library-media-text__media-container video {
 	margin-bottom: -10px;
 	width: 100%;
 }

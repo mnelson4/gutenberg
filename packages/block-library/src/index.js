@@ -25,7 +25,7 @@ import * as column from './columns/column';
 import * as coverImage from './cover-image';
 import * as embed from './embed';
 import * as file from './file';
-import * as halfMedia from './layout-half-media';
+import * as mediaText from './media-text';
 import * as latestComments from './latest-comments';
 import * as latestPosts from './latest-posts';
 import * as list from './list';
@@ -69,7 +69,7 @@ export const registerCoreBlocks = () => {
 		...embed.common,
 		...embed.others,
 		file,
-		halfMedia,
+		mediaText,
 		latestComments,
 		latestPosts,
 		more,

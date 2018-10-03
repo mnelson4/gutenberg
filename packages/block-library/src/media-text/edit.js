@@ -26,7 +26,7 @@ const TEMPLATE = [
 	[ 'core/paragraph', { fontSize: 'large', placeholder: 'Content…' } ],
 ];
 
-class HalfMediaEdit extends Component {
+class MediaTextEdit extends Component {
 	constructor() {
 		super( ...arguments );
 
@@ -86,7 +86,7 @@ class HalfMediaEdit extends Component {
 
 		return (
 			<MediaContainer
-				className="block-library-half-media__media-container"
+				className="block-library-media-text__media-container"
 				onSelectMedia={ this.onSelectMedia }
 				onWidthChange={ this.onWidthChange }
 				commitWidthChange={ this.commitWidthChange }
@@ -99,7 +99,7 @@ class HalfMediaEdit extends Component {
 		const { attributes, backgroundColor, setAttributes, setBackgroundColor } = this.props;
 		const { mediaPosition, mediaWidth } = attributes;
 		const temporaryMediaWidth = this.state.mediaWidth;
-		const className = classnames( 'wp-block-half-media', {
+		const className = classnames( 'wp-block-media-text', {
 			'has-media-on-the-right': 'right' === mediaPosition,
 			[ backgroundColor.class ]: backgroundColor.class,
 		} );
@@ -150,4 +150,4 @@ class HalfMediaEdit extends Component {
 	}
 }
 
-export default withColors( 'backgroundColor' )( HalfMediaEdit );
+export default withColors( 'backgroundColor' )( MediaTextEdit );

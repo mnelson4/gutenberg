@@ -1,15 +1,15 @@
 [
     {
         "clientId": "_clientId_0",
-        "name": "core/half-media",
+        "name": "core/media-text",
         "isValid": true,
         "attributes": {
             "align": "wide",
             "mediaAlt": "",
             "mediaPosition": "left",
-            "mediaId": 17897,
-            "mediaUrl": "http://localhost/wp-content/uploads/2018/09/Jul-26-2018-11-34-54.mp4",
-            "mediaType": "video",
+            "mediaId": 17985,
+            "mediaUrl": "http://localhost/wp-content/uploads/2018/09/1600px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg",
+            "mediaType": "image",
             "mediaWidth": 50
         },
         "innerBlocks": [
@@ -29,6 +29,6 @@
                 "originalContent": "<p class=\"has-large-font-size\">My Content</p>"
             }
         ],
-        "originalContent": "<div class=\"wp-block-half-media alignwide\">\n\t<figure class=\"wp-block-half-media__media\">\n\t\t<video controls src=\"http://localhost/wp-content/uploads/2018/09/Jul-26-2018-11-34-54.mp4\"></video>\n\t</figure>\n\t<div class=\"wp-block-half-media__content\">\n\t\t\n\t</div>\n</div>"
+        "originalContent": "<div class=\"wp-block-media-text alignwide\">\n\t<figure class=\"wp-block-media-text__media\">\n\t\t<img src=\"http://localhost/wp-content/uploads/2018/09/1600px-Mount_Everest_as_seen_from_Drukair2_PLW_edit.jpg\" alt=\"\"/>\n\t</figure>\n\t<div class=\"wp-block-media-text__content\">\n\t\t\n\t</div>\n</div>"
     }
 ]
