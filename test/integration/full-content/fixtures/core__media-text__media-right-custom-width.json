@@ -18,9 +18,19 @@
                 "name": "core/paragraph",
                 "isValid": true,
                 "attributes": {
-                    "content": [
-                        "My video"
-                    ],
+                    "content": {
+                        "formats": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        "text": "My video"
+                    },
                     "align": "right",
                     "dropCap": false,
                     "placeholder": "Content…",

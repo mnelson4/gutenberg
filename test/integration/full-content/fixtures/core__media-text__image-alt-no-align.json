@@ -18,9 +18,18 @@
                 "name": "core/paragraph",
                 "isValid": true,
                 "attributes": {
-                    "content": [
-                        "Content"
-                    ],
+                    "content": {
+                        "formats": [
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null,
+                            null
+                        ],
+                        "text": "Content"
+                    },
                     "dropCap": false,
                     "placeholder": "Content…",
                     "fontSize": "large"

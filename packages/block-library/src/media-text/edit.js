@@ -13,10 +13,14 @@ import {
 	InspectorControls,
 	PanelColorSettings,
 	withColors,
-	MediaContainer,
 } from '@wordpress/editor';
 import { Component, Fragment } from '@wordpress/element';
 import { Toolbar } from '@wordpress/components';
+
+/**
+ * Internal dependencies
+ */
+import MediaContainer from './media-container';
 
 /**
  * Constants

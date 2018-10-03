@@ -9,13 +9,11 @@ import ResizableBox from 're-resizable';
 import { __ } from '@wordpress/i18n';
 import { Component, Fragment } from '@wordpress/element';
 import { IconButton, Toolbar } from '@wordpress/components';
-
-/**
- * Internal dependencies
- */
-import BlockControls from '../block-controls';
-import MediaPlaceholder from '../media-placeholder';
-import MediaUpload from '../media-upload';
+import {
+	BlockControls,
+	MediaPlaceholder,
+	MediaUpload,
+} from '@wordpress/editor';
 
 /**
  * Constants
